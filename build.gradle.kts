@@ -1,5 +1,3 @@
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-
 plugins {
     id("java")
     kotlin("jvm") version "1.9.22"
@@ -30,7 +28,7 @@ repositories {
 
 
 dependencies {
-    val paperVersion = "1.20.4-R0.1-SNAPSHOT"
+    val paperVersion = "1.21-R0.1-SNAPSHOT"
     val mccoroutineVersion = "2.14.0"
     val lampVersion = "3.1.9"
     val koinVersion = "3.5.3"
@@ -56,22 +54,22 @@ dependencies {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
 
 tasks {
     compileKotlin {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = "21"
         kotlinOptions.javaParameters = true
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = "21"
     }
     build {
         dependsOn(shadowJar)
     }
     runServer {
-        minecraftVersion("1.20.4")
+        minecraftVersion("1.21")
     }
     withType<JavaCompile>().configureEach {
         options.encoding = "UTF-8"
@@ -81,11 +79,11 @@ tasks {
 
 
 bukkit {
-    name = "Template" //TODO need to change
+    name = "MobBallRemake"
     version = "miencraft_plugin_version"
-    website = "https://github.com/Nlkomaru/NoticeTemplate"  //TODO need to change
+    website = "https://github.com/morinoparty/Mobball-remake"
 
-    main = "$group.template.Template"  //TODO need to change
+    main = "$group.mobballremake.MobBallRemake"
 
     apiVersion = "1.20"
 }

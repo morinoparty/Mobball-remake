@@ -1,28 +1,29 @@
-package dev.nikomaru.template
+package dev.nikomaru.mobballremake
 
-import dev.nikomaru.template.commands.HelpCommand
+import dev.nikomaru.mobballremake.listener.MobBallThrowListener
 import org.bukkit.plugin.java.JavaPlugin
 import org.koin.core.context.GlobalContext
 import org.koin.dsl.module
 import revxrsal.commands.bukkit.BukkitCommandHandler
 import revxrsal.commands.ktx.supportSuspendFunctions
 
-open class Template : JavaPlugin() {
+open class MobBallRemake : JavaPlugin() {
 
     companion object {
-        lateinit var plugin: Template
+        lateinit var plugin: MobBallRemake
             private set
     }
     override fun onEnable() {
         // Plugin startup logic
         plugin = this
         setCommand()
+        setEvent()
         setupKoin()
     }
 
     private fun setupKoin() {
         val appModule = module {
-            single<Template> { this@Template }
+            single<MobBallRemake> { this@MobBallRemake }
         }
 
         GlobalContext.getOrNull() ?: GlobalContext.startKoin {
@@ -31,6 +32,10 @@ open class Template : JavaPlugin() {
     }
     override fun onDisable() {
         // Plugin shutdown logic
+    }
+
+    fun setEvent() {
+        server.pluginManager.registerEvents(MobBallThrowListener(), this)
     }
 
     fun setCommand() {
@@ -52,10 +57,6 @@ open class Template : JavaPlugin() {
                 command.usage,
                 command.description,
             )
-        }
-
-        with(handler) {
-            register(HelpCommand())
         }
     }
 }
