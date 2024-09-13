@@ -32,7 +32,7 @@ dependencies {
     val mccoroutineVersion = "2.14.0"
     val lampVersion = "3.1.9"
     val koinVersion = "3.5.3"
-    val coroutineVersion = "1.7.3"
+    val coroutineVersion = "1.9.0"
     val serializationVersion = "1.6.2"
 
 
