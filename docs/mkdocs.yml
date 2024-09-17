@@ -1,4 +1,4 @@
-site_name: PluginTemplate Docs
+site_name: Mobball-remake Docs
 theme:
   name: material
   language: en
@@ -29,17 +29,14 @@ markdown_extensions:
 
 plugins:
   - search:
-      lang: en
+      lang: ja
   - i18n:
       docs_structure: folder
       languages:
-        - locale: en
-          default: true
-          name: English
-          build: true
         - locale: ja
           name: 日本語
           build: true
-repo_url: https://github.com/Nlkomaru/PluginTemplate
-repo_name: PluginTemplate
+          default: true
+repo_url: https://github.com/morinoparty/Mobball-remake
+repo_name: Mobball-remake
 copyright: No Rights Reserved(CC0).  Written by Nikomaru in 2024

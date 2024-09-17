@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.serialization") version "1.9.22"
 }
 
-group = "dev.nikomaru" //TODO need to change
+group = "dev.nikomaru"
 version = "1.0-SNAPSHOT"
 
 fun captureVersion(dependency: Dependency): String {

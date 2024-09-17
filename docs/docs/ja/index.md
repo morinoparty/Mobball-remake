@@ -1,3 +1,3 @@
-# PluginTemplateについて
+# 始める
 
-これは[Minecraft](https://www.minecraft.net/)サーバーソフトウェア[Paper](https://papermc.io/)用のプラグインを作成するためのテンプレートです。
+Mobball-remakeとは、MinecraftのPluginで、Mobをボールの中に収納し、持ち運べるようにするものです。
