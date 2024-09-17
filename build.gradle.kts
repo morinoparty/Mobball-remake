@@ -1,8 +1,8 @@
 plugins {
     id("java")
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "2.0.20"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("xyz.jpenilla.run-paper") version "2.2.3"
+    id("xyz.jpenilla.run-paper") version "2.3.1"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
     kotlin("plugin.serialization") version "2.0.20"
 }
@@ -28,12 +28,12 @@ repositories {
 
 
 dependencies {
-    val paperVersion = "1.21-R0.1-SNAPSHOT"
-    val mccoroutineVersion = "2.14.0"
-    val lampVersion = "3.1.9"
-    val koinVersion = "3.5.3"
-    val coroutineVersion = "1.7.3"
-    val serializationVersion = "1.6.2"
+    val paperVersion = "1.21.1-R0.1-SNAPSHOT"
+    val mccoroutineVersion = "2.19.0"
+    val lampVersion = "3.2.1"
+    val koinVersion = "4.0.0"
+    val coroutineVersion = "1.9.0"
+    val serializationVersion = "1.7.2"
 
 
     compileOnly("io.papermc.paper:paper-api:$paperVersion")
