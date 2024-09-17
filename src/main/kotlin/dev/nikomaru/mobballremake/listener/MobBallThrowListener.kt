@@ -10,7 +10,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 class MobBallThrowListener: Listener, KoinComponent {
-    val plugin : MobBallRemake by inject()
+    private val plugin : MobBallRemake by inject()
 
     companion object {
         const val MOB_BALL_KEY = "mob_ball:ball_type"

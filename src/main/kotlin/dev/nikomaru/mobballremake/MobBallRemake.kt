@@ -1,11 +1,13 @@
 package dev.nikomaru.mobballremake
 
 import dev.nikomaru.mobballremake.listener.MobBallThrowListener
+import org.bukkit.command.CommandSender
 import org.bukkit.plugin.java.JavaPlugin
+import org.incendo.cloud.execution.ExecutionCoordinator
+import org.incendo.cloud.paper.LegacyPaperCommandManager
+import org.incendo.cloud.setting.ManagerSetting
 import org.koin.core.context.GlobalContext
 import org.koin.dsl.module
-import revxrsal.commands.bukkit.BukkitCommandHandler
-import revxrsal.commands.ktx.supportSuspendFunctions
 
 open class MobBallRemake : JavaPlugin() {
 
@@ -34,29 +36,21 @@ open class MobBallRemake : JavaPlugin() {
         // Plugin shutdown logic
     }
 
-    fun setEvent() {
+    private fun setEvent() {
         server.pluginManager.registerEvents(MobBallThrowListener(), this)
     }
 
     fun setCommand() {
-        val handler = BukkitCommandHandler.create(this)
+        val commandManager = LegacyPaperCommandManager.createNative(
+            this,
+            ExecutionCoordinator.simpleCoordinator()
+        )
 
-        handler.setSwitchPrefix("--")
-        handler.setFlagPrefix("--")
-        handler.supportSuspendFunctions()
+        commandManager.settings().set(ManagerSetting.ALLOW_UNSAFE_REGISTRATION, true)
 
-        handler.setHelpWriter { command, actor ->
-            java.lang.String.format(
-                """
-                <color:yellow>command: <color:gray>%s
-                <color:yellow>usage: <color:gray>%s
-                <color:yellow>description: <color:gray>%s
-                
-                """.trimIndent(),
-                command.path.toList(),
-                command.usage,
-                command.description,
-            )
-        }
+        val annotationParser =
+            org.incendo.cloud.annotations.AnnotationParser(commandManager, CommandSender::class.java)
+
+        annotationParser.parse()
     }
 }

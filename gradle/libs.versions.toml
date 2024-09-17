@@ -1,0 +1,31 @@
+[versions]
+paper = "1.21-R0.1-SNAPSHOT"
+koinVersion = "3.5.6"
+mccoroutine = "2.19.0"
+coroutine = "1.8.1"
+serialization = "1.7.2"
+cloud = "2.1.0-SNAPSHOT"
+cloudPaper = "2.0.0-SNAPSHOT"
+
+[libraries]
+paper-api = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
+cloud = { module = "org.incendo:cloud-core", version.ref = "cloud" }
+cloud-annotations = { module = "org.incendo:cloud-annotations", version.ref = "cloud" }
+cloudPaper = { module = "org.incendo:cloud-paper", version.ref = "cloudPaper" }
+serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutine" }
+mccoroutine-bukkit-api = { group = "com.github.shynixn.mccoroutine", name = "mccoroutine-bukkit-api", version.ref = "mccoroutine" }
+mccoroutine-bukkit-core = { group = "com.github.shynixn.mccoroutine", name = "mccoroutine-bukkit-core", version.ref = "mccoroutine" }
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koinVersion" }
+
+[plugins]
+run-paper = { id = "xyz.jpenilla.run-paper", version = "2.3.1" }
+resource-factory = { id = "xyz.jpenilla.resource-factory", version = "1.1.2" }
+shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.0.20" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.0.20" }
+dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
+
+[bundles]
+commands = ["cloud", "cloudPaper", "cloud-annotations"]
+coroutines = ["mccoroutine-bukkit-api", "mccoroutine-bukkit-core" , "kotlinx-coroutines-core"]
