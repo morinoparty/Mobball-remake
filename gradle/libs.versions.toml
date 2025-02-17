@@ -1,9 +1,9 @@
 [versions]
 paper = "1.21.4-R0.1-SNAPSHOT"
-koinVersion = "4.0.1"
-mccoroutine = "2.20.0"
+koinVersion = "4.0.2"
+mccoroutine = "2.21.0"
 coroutine = "1.10.1"
-serialization = "1.7.3"
+serialization = "1.8.0"
 cloud = "2.1.0-SNAPSHOT"
 cloudPaper = "2.0.0-SNAPSHOT"
 
@@ -22,8 +22,8 @@ koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koinV
 run-paper = { id = "xyz.jpenilla.run-paper", version = "2.3.1" }
 resource-factory = { id = "xyz.jpenilla.resource-factory", version = "1.2.0" }
 shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.1.0" }
-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.1.0" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "2.1.10" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.1.10" }
 dokka = { id = "org.jetbrains.dokka", version = "2.0.0" }
 
 [bundles]
